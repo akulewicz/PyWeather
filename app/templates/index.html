@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akuku! Sprawdź pogodę!</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <main class="main">
+        <h1 class="app-heading">PyWeather by Kula</h1>
+        <form class="location-form location-form--js">
+            <label class="location-form__label" for="location">Podaj miasto dla którego chcesz sprawdzić pogodę</label>
+            <input class="location-form__input" type="text" name="location" id="location">
+        </form>
+
+        {% if weather.error_msg %}
+            <h1>{{ weather.error_msg }}</h1>
+        {% else %}
+            <article class="weather-box weather-box--js">
+                
+                <div class="details details--js">
+                    <img src="http://openweathermap.org/img/wn/{{ weather.icon }}.png">
+                    <p class="details__city">{{ weather.city_name}}</p>
+                    <p class="details__condition">{{ weather.description }}</p>
+                    <p class="details__temp">{{ weather.temperature }}&deg;C</p>    
+                </div>
+            </article>
+        {% endif %}
+    </main>
+</body>
+</html>
