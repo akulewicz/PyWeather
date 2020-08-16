@@ -2,9 +2,9 @@ from requests import get
 from json import loads
 
 
-def get_weather():
+def get_weather(city):
     try:
-        url = 'https://api.openweathermap.org/data/2.5/weather?q=Gdańsk&units=metric&lang=pl&appid=dbd1ed1a0f660663ce55eebde9dd8ceb'
+        url = f'https://api.openweathermap.org/data/2.5/weather?q={city}&units=metric&lang=pl&appid=dbd1ed1a0f660663ce55eebde9dd8ceb'
         response = get(url)
         data = loads(response.text)
 

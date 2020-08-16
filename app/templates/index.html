@@ -10,14 +10,16 @@
 <body>
     <main class="main">
         <h1 class="app-heading">PyWeather by Kula</h1>
-        <form class="location-form location-form--js">
-            <label class="location-form__label" for="location">Podaj miasto dla którego chcesz sprawdzić pogodę</label>
-            <input class="location-form__input" type="text" name="location" id="location">
+        <form class="location-form location-form--js" action="" method="POST">
+            {{ form.hidden_tag() }}
+            {{ form.city.label(class="location-form__label")}}
+            {{ form.city(class="location-form__input") }}
         </form>
 
         {% if weather.error_msg %}
             <h1>{{ weather.error_msg }}</h1>
         {% else %}
+        {% if city != None %}
             <article class="weather-box weather-box--js">
                 
                 <div class="details details--js">
@@ -27,6 +29,7 @@
                     <p class="details__temp">{{ weather.temperature }}&deg;C</p>    
                 </div>
             </article>
+        {% endif %}
         {% endif %}
     </main>
 </body>
