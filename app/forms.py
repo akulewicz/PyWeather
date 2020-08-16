@@ -3,4 +3,4 @@ from wtforms import StringField
 from wtforms.validators import DataRequired, Length
 
 class CityForm(FlaskForm):
-    city = StringField('Miasto dla którego chcesz sprawdzić pogodę', validators=[DataRequired(), Length(min=2, max=12)])
+    city = StringField('Podaj nazwę miejscowości', validators=[DataRequired(), Length(min=2, max=12)])
