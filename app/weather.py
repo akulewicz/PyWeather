@@ -8,13 +8,14 @@ def get_weather(city):
         response = get(url)
         data = loads(response.text)
 
+
         return {
             'icon': data['weather'][0]['icon'],
             'city_name': data['name'],
             'description': data['weather'][0]['description'],
-            'temperature': data['main']['temp']
+            'temperature': round(data['main']['temp'], 1)
         }
     except:
         return {
-            'error_msg': 'Chyba mamy problemy z API'
+            'error_msg': 'Coś poszło nie tak. Sprawdź, czy nazwa miasta jest poprawna oraz czy masz połączenie z internetem!'
         }

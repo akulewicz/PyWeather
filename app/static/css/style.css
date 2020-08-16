@@ -58,6 +58,24 @@ body {
     display: none;
 }
 
+.warning-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+}
+
+.warning-box__icon {
+    font-size: 100px;
+    color: #7A5849;
+    margin-bottom: 20px;
+}
+
+.warning-box__description {
+    text-align: center;
+    line-height: 22px;
+}
+
 .details {
     display: flex;
     flex-direction: column;
@@ -71,6 +89,5 @@ body {
 }
 
 .details__temp {
-    color: #7A5849;
     font-size: 32px;
 }

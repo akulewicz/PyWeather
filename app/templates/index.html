@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pogoda w Twoim mieście</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+        integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
@@ -17,11 +19,16 @@
         </form>
 
         {% if weather.error_msg %}
-            <h1>{{ weather.error_msg }}</h1>
+            <article class="weather-box weather-box--js">
+                <div class="warning-box">
+                    <i class="fas fa-radiation-alt warning-box__icon"></i>
+                    <p class="warning-box__description">{{ weather.error_msg }}</p>
+                </div>
+                
+            </article>
         {% else %}
         {% if city != None %}
             <article class="weather-box weather-box--js">
-                
                 <div class="details details--js">
                     <img src="http://openweathermap.org/img/wn/{{ weather.icon }}.png">
                     <p class="details__city">{{ weather.city_name}}</p>
